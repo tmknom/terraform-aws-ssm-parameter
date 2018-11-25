@@ -8,11 +8,36 @@ Terraform module template following [Standard Module Structure](https://www.terr
 
 ## Usage
 
-Named `terraform-<PROVIDER>-<NAME>`. Module repositories must use this three-part name format.
+### Minimal
 
-```sh
-curl -fsSL https://raw.githubusercontent.com/tmknom/terraform-aws-ssm-parameter/master/install | sh -s terraform-aws-sample
-cd terraform-aws-sample && make install
+```hcl
+module "ssm_parameter" {
+  source = "git::https://github.com/tmknom/terraform-aws-ssm-parameter.git?ref=tags/1.0.0"
+  name   = "example"
+  value  = "example value"
+}
+```
+
+### Complete
+
+```hcl
+module "ssm_parameter" {
+  source = "git::https://github.com/tmknom/terraform-aws-ssm-parameter.git?ref=tags/1.0.0"
+  name   = "example"
+  value  = "example value"
+
+  type            = "String"
+  description     = "This is example."
+  key_id          = ""
+  overwrite       = true
+  allowed_pattern = ""
+  enabled         = true
+
+  tags = {
+    Environment = "prod"
+    Name        = "example"
+  }
+}
 ```
 
 ## Examples
