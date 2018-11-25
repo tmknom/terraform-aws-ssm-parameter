@@ -21,7 +21,7 @@ This module provides recommended settings:
 
 ```hcl
 module "ssm_parameter" {
-  source = "git::https://github.com/tmknom/terraform-aws-ssm-parameter.git?ref=tags/1.0.0"
+  source = "git::https://github.com/tmknom/terraform-aws-ssm-parameter.git?ref=tags/1.1.0"
   name   = "example"
 }
 ```
@@ -30,7 +30,7 @@ module "ssm_parameter" {
 
 ```hcl
 module "ssm_parameter" {
-  source = "git::https://github.com/tmknom/terraform-aws-ssm-parameter.git?ref=tags/1.0.0"
+  source = "git::https://github.com/tmknom/terraform-aws-ssm-parameter.git?ref=tags/1.1.0"
   name   = "example"
   value  = "example value"
 
