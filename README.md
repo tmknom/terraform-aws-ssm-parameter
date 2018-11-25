@@ -6,6 +6,15 @@
 
 Terraform module which creates SSM Parameter resources on AWS.
 
+## Description
+
+Provision [SSM Parameter](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html).
+
+This module provides recommended settings:
+
+- Use SecureString as default
+- Avoid overwrite of unmanaged existing resource
+
 ## Usage
 
 ### Minimal
