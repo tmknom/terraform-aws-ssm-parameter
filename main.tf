@@ -4,6 +4,8 @@
 
 # https://www.terraform.io/docs/providers/aws/r/ssm_parameter.html
 resource "aws_ssm_parameter" "default" {
+  count = "${var.enabled}"
+
   # Parameter names are case sensitive.
   # A parameter name must be unique within an AWS Region
   # A parameter name can't be prefixed with "aws" or "ssm" (case-insensitive).
