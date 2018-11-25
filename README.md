@@ -4,15 +4,49 @@
 [![GitHub tag](https://img.shields.io/github/tag/tmknom/terraform-aws-ssm-parameter.svg)](https://registry.terraform.io/modules/tmknom/ssm-parameter/aws)
 [![License](https://img.shields.io/github/license/tmknom/terraform-aws-ssm-parameter.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Terraform module template following [Standard Module Structure](https://www.terraform.io/docs/modules/create.html#standard-module-structure).
+Terraform module which creates SSM Parameter resources on AWS.
+
+## Description
+
+Provision [SSM Parameter](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html).
+
+This module provides recommended settings:
+
+- Use SecureString as default
+- Avoid overwrite of unmanaged existing resource
 
 ## Usage
 
-Named `terraform-<PROVIDER>-<NAME>`. Module repositories must use this three-part name format.
+### Minimal
 
-```sh
-curl -fsSL https://raw.githubusercontent.com/tmknom/terraform-aws-ssm-parameter/master/install | sh -s terraform-aws-sample
-cd terraform-aws-sample && make install
+```hcl
+module "ssm_parameter" {
+  source = "git::https://github.com/tmknom/terraform-aws-ssm-parameter.git?ref=tags/1.0.0"
+  name   = "example"
+  value  = "example value"
+}
+```
+
+### Complete
+
+```hcl
+module "ssm_parameter" {
+  source = "git::https://github.com/tmknom/terraform-aws-ssm-parameter.git?ref=tags/1.0.0"
+  name   = "example"
+  value  = "example value"
+
+  type            = "String"
+  description     = "This is example."
+  key_id          = ""
+  overwrite       = true
+  allowed_pattern = ""
+  enabled         = true
+
+  tags = {
+    Environment = "prod"
+    Name        = "example"
+  }
+}
 ```
 
 ## Examples
@@ -22,11 +56,27 @@ cd terraform-aws-sample && make install
 
 ## Inputs
 
-Write your Terraform module inputs.
+| Name            | Description                                                                     |  Type  |        Default         | Required |
+| --------------- | ------------------------------------------------------------------------------- | :----: | :--------------------: | :------: |
+| name            | The name of the parameter.                                                      | string |           -            |   yes    |
+| value           | The value of the parameter.                                                     | string |           -            |   yes    |
+| allowed_pattern | A regular expression used to validate the parameter value.                      | string |        `` | no         |
+| description     | The description of the parameter.                                               | string | `Managed by Terraform` |    no    |
+| enabled         | Set to false to prevent the module from creating anything.                      | string |         `true`         |    no    |
+| key_id          | The KMS key id or arn for encrypting a SecureString.                            | string |        `` | no         |
+| overwrite       | Overwrite an existing parameter.                                                | string |        `false`         |    no    |
+| tags            | A mapping of tags to assign to the object.                                      |  map   |          `{}`          |    no    |
+| type            | The type of the parameter. Valid types are String, StringList and SecureString. | string |     `SecureString`     |    no    |
 
 ## Outputs
 
-Write your Terraform module outputs.
+| Name                      | Description                       |
+| ------------------------- | --------------------------------- |
+| ssm_parameter_arn         | The ARN of the parameter.         |
+| ssm_parameter_description | The description of the parameter. |
+| ssm_parameter_name        | The name of the parameter.        |
+| ssm_parameter_type        | The type of the parameter.        |
+| ssm_parameter_value       | The value of the parameter.       |
 
 ## Development
 
