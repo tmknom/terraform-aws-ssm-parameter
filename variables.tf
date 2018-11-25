@@ -4,6 +4,7 @@ variable "name" {
 }
 
 variable "value" {
+  default     = "CHANGE ME"
   type        = "string"
   description = "The value of the parameter."
 }
