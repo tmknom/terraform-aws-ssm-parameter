@@ -47,4 +47,17 @@ resource "aws_ssm_parameter" "default" {
 
   # A mapping of tags to assign to the bucket.
   tags = "${var.tags}"
+
+  # As a design of this module, assume of value itself is changed manually.
+  # So, even if change the value itself using AWS Management Console or AWS CLI, should prevent plan diff occurring.
+  #
+  # That's because we want to manage SSM Parameter settings with Terraform.
+  # However, we do not want to manage the value itself (especially in case of sensitive value) with Terraform.
+  # Terraform writes sensitive value in plaintext into the tfstate file.
+  #
+  # NOTE: Use aws_ssm_parameter of Data Source, if you want to reference the value itself in Terraform code.
+  #       https://www.terraform.io/docs/providers/aws/d/ssm_parameter.html
+  lifecycle {
+    ignore_changes = ["value"]
+  }
 }
