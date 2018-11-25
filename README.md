@@ -22,11 +22,27 @@ cd terraform-aws-sample && make install
 
 ## Inputs
 
-Write your Terraform module inputs.
+| Name            | Description                                                                     |  Type  |        Default         | Required |
+| --------------- | ------------------------------------------------------------------------------- | :----: | :--------------------: | :------: |
+| name            | The name of the parameter.                                                      | string |           -            |   yes    |
+| value           | The value of the parameter.                                                     | string |           -            |   yes    |
+| allowed_pattern | A regular expression used to validate the parameter value.                      | string |        `` | no         |
+| description     | The description of the parameter.                                               | string | `Managed by Terraform` |    no    |
+| enabled         | Set to false to prevent the module from creating anything.                      | string |         `true`         |    no    |
+| key_id          | The KMS key id or arn for encrypting a SecureString.                            | string |        `` | no         |
+| overwrite       | Overwrite an existing parameter.                                                | string |        `false`         |    no    |
+| tags            | A mapping of tags to assign to the object.                                      |  map   |          `{}`          |    no    |
+| type            | The type of the parameter. Valid types are String, StringList and SecureString. | string |     `SecureString`     |    no    |
 
 ## Outputs
 
-Write your Terraform module outputs.
+| Name                      | Description                       |
+| ------------------------- | --------------------------------- |
+| ssm_parameter_arn         | The ARN of the parameter.         |
+| ssm_parameter_description | The description of the parameter. |
+| ssm_parameter_name        | The name of the parameter.        |
+| ssm_parameter_type        | The type of the parameter.        |
+| ssm_parameter_value       | The value of the parameter.       |
 
 ## Development
 
