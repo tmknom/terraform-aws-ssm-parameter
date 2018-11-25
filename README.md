@@ -23,7 +23,6 @@ This module provides recommended settings:
 module "ssm_parameter" {
   source = "git::https://github.com/tmknom/terraform-aws-ssm-parameter.git?ref=tags/1.0.0"
   name   = "example"
-  value  = "example value"
 }
 ```
 
