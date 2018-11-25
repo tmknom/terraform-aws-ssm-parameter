@@ -59,7 +59,6 @@ module "ssm_parameter" {
 | Name            | Description                                                                     |  Type  |        Default         | Required |
 | --------------- | ------------------------------------------------------------------------------- | :----: | :--------------------: | :------: |
 | name            | The name of the parameter.                                                      | string |           -            |   yes    |
-| value           | The value of the parameter.                                                     | string |           -            |   yes    |
 | allowed_pattern | A regular expression used to validate the parameter value.                      | string |        `` | no         |
 | description     | The description of the parameter.                                               | string | `Managed by Terraform` |    no    |
 | enabled         | Set to false to prevent the module from creating anything.                      | string |         `true`         |    no    |
@@ -67,6 +66,7 @@ module "ssm_parameter" {
 | overwrite       | Overwrite an existing parameter.                                                | string |        `false`         |    no    |
 | tags            | A mapping of tags to assign to the object.                                      |  map   |          `{}`          |    no    |
 | type            | The type of the parameter. Valid types are String, StringList and SecureString. | string |     `SecureString`     |    no    |
+| value           | The value of the parameter.                                                     | string |      `CHANGE ME`       |    no    |
 
 ## Outputs
 
