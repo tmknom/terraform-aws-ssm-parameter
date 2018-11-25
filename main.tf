@@ -52,10 +52,11 @@ resource "aws_ssm_parameter" "default" {
   # So, even if change the value itself using AWS Management Console or AWS CLI, should prevent plan diff occurring.
   #
   # That's because we want to manage SSM Parameter settings with Terraform.
-  # However, we do not want to manage the value itself (especially in case of sensitive value) with Terraform.
-  # Terraform writes sensitive value in plaintext into the tfstate file.
+  # But, we do not want to manage the value itself (especially in case of sensitive value) with Terraform.
+  # In other words, sensitive value that is written into the tf file should not be managed by the Version Control System.
   #
-  # NOTE: Use aws_ssm_parameter of Data Source, if you want to reference the value itself in Terraform code.
+  # NOTE: If you want to reference the value itself in Terraform code, then use aws_ssm_parameter of Data Source.
+  #       However, keep in mind that sensitive values are written as plaintext to the tfstate file.
   #       https://www.terraform.io/docs/providers/aws/d/ssm_parameter.html
   lifecycle {
     ignore_changes = ["value"]
