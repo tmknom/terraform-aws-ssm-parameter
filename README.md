@@ -60,7 +60,7 @@ module "ssm_parameter" {
 | name            | The name of the parameter.                                                      | string |           -            |   yes    |
 | allowed_pattern | A regular expression used to validate the parameter value.                      | string |        `` | no         |
 | description     | The description of the parameter.                                               | string | `Managed by Terraform` |    no    |
-| enabled         | Set to false to prevent the module from creating anything.                      | string |         `true`         |    no    |
+| enabled         | Set to false to prevent the module from creating anything.                      |  bool  |         `true`         |    no    |
 | key_id          | The KMS key id or arn for encrypting a SecureString.                            | string |        `` | no         |
 | overwrite       | Overwrite an existing parameter.                                                | string |        `false`         |    no    |
 | tags            | A mapping of tags to assign to the object.                                      |  map   |          `{}`          |    no    |
