@@ -62,4 +62,3 @@ resource "aws_ssm_parameter" "default" {
     ignore_changes = [value]
   }
 }
-

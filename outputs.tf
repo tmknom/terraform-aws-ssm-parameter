@@ -22,4 +22,3 @@ output "ssm_parameter_value" {
   value       = join("", aws_ssm_parameter.default.*.value)
   description = "The value of the parameter."
 }
-

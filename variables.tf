@@ -50,4 +50,3 @@ variable "enabled" {
   type        = string
   description = "Set to false to prevent the module from creating anything."
 }
-
