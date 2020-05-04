@@ -79,7 +79,7 @@ module "ssm_parameter" {
 
 ## Development
 
-### Requirements
+### Development Requirements
 
 - [Docker](https://www.docker.com/)
 
