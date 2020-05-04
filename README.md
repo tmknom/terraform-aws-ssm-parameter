@@ -1,6 +1,9 @@
 # terraform-aws-ssm-parameter
 
-[![CircleCI](https://circleci.com/gh/tmknom/terraform-aws-ssm-parameter.svg?style=svg)](https://circleci.com/gh/tmknom/terraform-aws-ssm-parameter)
+[![Terraform Actions Status](https://github.com/tmknom/terraform-aws-ssm-parameter/workflows/Terraform/badge.svg)](https://github.com/tmknom/terraform-aws-ssm-parameter/actions?query=workflow%3ATerraform)
+[![Markdown Actions Status](https://github.com/tmknom/terraform-aws-ssm-parameter/workflows/Markdown/badge.svg)](https://github.com/tmknom/terraform-aws-ssm-parameter/actions?query=workflow%3AMarkdown)
+[![YAML Actions Status](https://github.com/tmknom/terraform-aws-ssm-parameter/workflows/YAML/badge.svg)](https://github.com/tmknom/terraform-aws-ssm-parameter/actions?query=workflow%3AYAML)
+[![JSON Actions Status](https://github.com/tmknom/terraform-aws-ssm-parameter/workflows/JSON/badge.svg)](https://github.com/tmknom/terraform-aws-ssm-parameter/actions?query=workflow%3AJSON)
 [![GitHub tag](https://img.shields.io/github/tag/tmknom/terraform-aws-ssm-parameter.svg)](https://registry.terraform.io/modules/tmknom/ssm-parameter/aws)
 [![License](https://img.shields.io/github/license/tmknom/terraform-aws-ssm-parameter.svg)](https://opensource.org/licenses/Apache-2.0)
 
