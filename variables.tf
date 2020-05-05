@@ -22,7 +22,7 @@ variable "description" {
 }
 
 variable "key_id" {
-  default     = ""
+  default     = null
   type        = string
   description = "The KMS key id or arn for encrypting a SecureString."
 }
